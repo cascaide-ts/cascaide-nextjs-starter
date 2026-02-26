@@ -19,7 +19,7 @@ type ToolCall = {
 
 
 
-export default function BookingUi( nodeId : string) {
+export default function BookingUi( { nodeId }: { nodeId: string }) {
 
 const {addActiveNode, signalCompletion, nodeData} = useWorkflow(nodeId);
 const cascadeId = nodeData.initialContext.cascadeId;
