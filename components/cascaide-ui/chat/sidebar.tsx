@@ -84,7 +84,7 @@ export const Sidebar = ({
                     // Added a new flex container to group the icon and text
                     <div className="flex items-center gap-2"> 
                         <Rocket size={24} className="text-indigo-400" /> {/* Added Rocket icon */}
-                        <h2 className="text-xl font-bold">propelx</h2>
+                        <h2 className="text-xl font-bold">Cascaide</h2>
                     </div>
                 )}
 

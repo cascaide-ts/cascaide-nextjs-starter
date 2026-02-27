@@ -1,5 +1,5 @@
 import { createPersistenceHandler } from '@cascaide-ts/server-next';
-import { PostgresPersistor } from '@/lib/persistor';
+import { PostgresPersistor } from '@cascaide-ts/postgres-js';
 import { sql } from '@/lib/connection';
 import { NextRequest } from 'next/server';
 

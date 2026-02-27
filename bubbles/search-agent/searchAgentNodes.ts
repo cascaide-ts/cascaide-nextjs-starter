@@ -129,7 +129,7 @@ export async function searchAgentNodePost(execOutput: any) {
 
   const updates = {
     [cascadeId]: {
-      history: assistantMessage,
+      history: [assistantMessage],
       status: pendingToolCalls.length > 0 ? 'calling_tool' : 'complete',
       chartConfig: null,
       lastUpdate: Date.now(),
@@ -141,7 +141,7 @@ export async function searchAgentNodePost(execOutput: any) {
   
   if (shouldSpawnNode) {
     spawns['searchToolNode'] = {
-      history: assistantMessage,
+      history: [assistantMessage],
       toolCallsToExecute: pendingToolCalls,
     } 
   }
