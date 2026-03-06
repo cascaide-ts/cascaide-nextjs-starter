@@ -10,7 +10,6 @@ export default function HomePage() {
       initialNodeName="chat"
       config={clientWorkflowConfig}
       actionRelayEndpoint='/api/workflow/action'
-      hydrationEndpoint='/api/worlflow/hydrate'
       persistenceEndpoint='/api/workflow/persistence'
     >
       <WorkflowRenderer />

@@ -3,6 +3,7 @@ import { useState} from 'react';
 
 
 import { useWorkflow } from '@cascaide-ts/react';
+import { Spawns } from '@cascaide-ts/core';
 
 export function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -37,11 +38,14 @@ const cascadeId = nodeData.initialContext.cascadeId;
         }
 
 
-    await addActiveNode('bookingAgentNode', {
-      cascadeId: cascadeId,
-      history: [toolResponse], 
-      userId: "guest-id"
-    });
+        const spawns: Spawns = {
+          bookingAgentNode: {
+            cascadeId: cascadeId,
+            history: [toolResponse],
+            userId: "guest-id",
+          }
+        };
+        await addActiveNode(spawns);
 
 
     signalCompletion({nodeId,hasSpawns:true});

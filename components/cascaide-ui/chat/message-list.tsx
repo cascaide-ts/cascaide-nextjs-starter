@@ -33,6 +33,7 @@ import { MessageBubble } from './message-bubble';
 // ---------------------------------------------------------------------------
 
 import { HotelOptions } from './tool-ui/hotel-tool';
+import { Spawns } from '@cascaide-ts/core';
 
 export type ToolComponentProps = {
     args: any;
@@ -102,7 +103,7 @@ export const MessageList = memo(({
     displayHistory: any[];
     userId: string | undefined;
     // addActiveNode comes from useWorkflow — triggers a node execution in the graph
-    addActiveNode: any;
+    addActiveNode: any
     // handleToolResponse sends a tool result message and continues the cascade
     handleToolResponse: any;
 }) => {
@@ -192,12 +193,15 @@ export const MessageList = memo(({
 
                     // Trigger the sub-agent node in the graph.
                     // The sub-cascade ID links this execution to CascadeMonitor below.
-                    await addActiveNode(subNodeName, {
-                        cascadeId: newSubCascadeId,
-                        history: [{ role: 'user', content: query.trim() }],
-                        originalToolCallId: toolCall.id,
-                        userId,
-                    });
+                    const spawns: Spawns = {
+                        [subNodeName]: {
+                          cascadeId: newSubCascadeId,
+                          history: [{ role: 'user', content: query.trim() }],
+                          originalToolCallId: toolCall.id,
+                          userId,
+                        }
+                      };
+                      await addActiveNode(spawns);
                 } catch (error) {
                     console.error('Error processing delegation:', error);
                 }

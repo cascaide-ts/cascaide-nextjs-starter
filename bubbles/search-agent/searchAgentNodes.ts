@@ -10,11 +10,6 @@ export async function searchAgentNodePrep(context: WorkflowContext, initialConte
   const cascadeId = initialContext.cascadeId;
   const dataArray = context[cascadeId]
   const history = dataArray.flatMap(item => item.history || []);
-  console.log(JSON.stringify(history))
-  console.log(cascadeId)
-
-
-
   return { 
     history: history
   };

@@ -1,4 +1,4 @@
-import { WorkflowHandlerConfig } from '@cascaide-ts/server-next'
+import { WorkflowHandlerConfig } from '@cascaide-ts/core';
 import {PostgresPersistor} from '@cascaide-ts/postgres-js';
 import { sql } from '@/lib/connection';
 import { serverWorkflowGraph } from './graph';
